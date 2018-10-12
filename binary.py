@@ -29,18 +29,17 @@ def BinaryLastPosition(list,value):
             high = mid
     return low
 
-l = [random.randrange(10) for i in range(10)]
+list_range = int(input('Type list range >'))
+random_range = int(input('Type random range >'))
+
+l = [random.randrange(random_range) for i in range(list_range)]
 l = sorted(l)
 
 print(l,'\n')
-value = int(input('type number to search >>'))
-
-
-a = BinaryFirstPosition(l,value)
-b = BinaryLastPosition(l,value)
-
+value = int(input('Type number to search >>'))
 
 if BinaryFirstPosition(l,value) is not None:
-    print('First position of searched item is {} and last position is {}'.format(a, b))
+    print('First position of searched item' +
+            ' is {} and last position is {}'.format(BinaryFirstPosition(l,value), BinaryLastPosition(l,value)))
 else:
     print('Not found')
