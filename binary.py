@@ -1,12 +1,5 @@
 import random
 
-l = [random.randrange(10) for i in range(10)]
-l = sorted(l)
-
-print(l,'\n')
-value = int(input('type number to search >>'))
-
-
 def BinaryFirstPosition(list, value):
     high = len(list)
     low = -1
@@ -35,6 +28,13 @@ def BinaryLastPosition(list,value):
         else:
             high = mid
     return low
+
+l = [random.randrange(10) for i in range(10)]
+l = sorted(l)
+
+print(l,'\n')
+value = int(input('type number to search >>'))
+
 
 a = BinaryFirstPosition(l,value)
 b = BinaryLastPosition(l,value)
