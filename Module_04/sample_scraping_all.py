@@ -6,6 +6,7 @@ There is sleep for 1 second in a script to avoid 429 HTTP Error
 
 from urllib.request import urlopen, Request
 import time
+import json
 
 def Read_Page(URL, HEAD):
     REQ = Request(URL, headers = HEAD)
@@ -69,6 +70,9 @@ while True:
         NEXT_URL = URL + NEXT_URL[1:] #remove \ on the start
         print('Next url ', NEXT_URL)
 
-    time.sleep(1)
+    time.sleep(5)
 
 print(LIST_OF_COUNTRIES)
+
+with open("countries.json", 'w') as f:
+     json.dump(LIST_OF_COUNTRIES, f)
