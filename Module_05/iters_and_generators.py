@@ -19,7 +19,7 @@ def get_params(integers=True):
     if integers:
         inc = int(input('Increment?:\n'))
     else:
-        inc = 0
+        inc = None
     print('\n')
 
     return gen_range, inc
@@ -92,11 +92,7 @@ series_container = [IntNumbers, numbrs_generator, SNumbers, simple_nums_generato
 try:
     choice = int(input(""))
     if choice < 5:
-        if choice < 3:
-            series_range, inc = get_params(True)
-        else:
-            series_range, inc = get_params(False)
-
+        series_range, inc = get_params(True and choice < 3) #need increment user input if choice < 3
         series = series_container[choice-1](series_range, inc)
 
         while True:
