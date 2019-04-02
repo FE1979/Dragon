@@ -16,12 +16,11 @@ def first_file_line():
         return line
 
     path = pathlib.Path.cwd()
-    file_list = list(path.rglob('*.*'))
-    n = len(file_list) - 1
-    i = 0
-    while i <= n:
-        yield file_list[i], first_line(file_list[i])
-        i += 1
+    file_list = path.rglob('*.*')
+
+    for i in file_list:
+        yield i, first_line(i)
+
 
 for i in first_file_line():
     print(i)
